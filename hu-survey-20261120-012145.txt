@@ -1,0 +1,259 @@
+
+== version
+202402191339
+Linux xse-j6-apn-entryevo 3.12.25-FR21.0 #1 SMP PREEMPT Mon Feb 19 12:41:42 JST 2024 armv7l GNU/Linux
+
+== mounts
+/dev/mmcblk0p3 on / type ext4 (ro,relatime,data=ordered)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=975036k,nr_inodes=243759,mode=755)
+proc on /proc type proc (rw,relatime)
+tmp on /tmp type tmpfs (rw,relatime,size=1015996k,nr_inodes=253999)
+sysfs on /sys type sysfs (rw,relatime)
+tmpfs on /dev/shm type tmpfs (rw,relatime,size=1015996k,nr_inodes=253999)
+devpts on /dev/pts type devpts (rw,relatime,gid=5,mode=620)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,size=1015996k,nr_inodes=253999,mode=755)
+tmpfs on /media type tmpfs (rw,relatime,size=1015996k,nr_inodes=253999)
+tmpfs on /var/volatile type tmpfs (rw,relatime,size=1015996k,nr_inodes=253999)
+tmpfs on /sys/fs/cgroup type tmpfs (rw,nosuid,nodev,noexec,relatime,size=1015996k,nr_inodes=253999,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+/dev/mmcblk0p6 on /opt/app/cisu type ext4 (rw,nosuid,nodev,relatime,data=ordered)
+/dev/mmcblk0p7 on /opt/navd type ext4 (rw,nosuid,nodev,relatime,data=ordered)
+cgroup on /sys/fs/cgroup/cpu type cgroup (rw,relatime,cpuacct,cpu)
+tmpfs on /etc/machine-id type tmpfs (ro,relatime,size=1015996k,nr_inodes=253999,mode=755)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime,mode=711)
+/dev/mmcblk0p2 on /var/local type ext4 (rw,nosuid,nodev,noexec,relatime,data=ordered)
+tmpfs on /var/lib type tmpfs (rw,relatime,size=1015996k,nr_inodes=253999)
+tmpfs on /var/cache type tmpfs (rw,relatime,size=1015996k,nr_inodes=253999)
+tmpfs on /home/root type tmpfs (rw,relatime,size=1015996k,nr_inodes=253999)
+configfs on /sys/kernel/config type configfs (rw,relatime)
+carlife on /dev/ffs-carlife type functionfs (rw,relatime)
+
+== free space (KiB)
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/root              6327624   5380276    602876  90% /
+devtmpfs                975036         8    975028   0% /dev
+tmp                    1015996       764   1015232   0% /tmp
+tmpfs                  1015996        80   1015916   0% /dev/shm
+tmpfs                  1015996       248   1015748   0% /run
+tmpfs                  1015996         0   1015996   0% /media
+tmpfs                  1015996        32   1015964   0% /var/volatile
+tmpfs                  1015996         0   1015996   0% /sys/fs/cgroup
+/dev/mmcblk0p6          370611      2070    344887   1% /opt/app/cisu
+/dev/mmcblk0p7        51073680  15490836  32965400  32% /opt/navd
+tmpfs                  1015996       248   1015748   0% /etc/machine-id
+/dev/mmcblk0p2         1890316    234896   1541348  13% /var/local
+tmpfs                  1015996        32   1015964   0% /var/lib
+tmpfs                  1015996        32   1015964   0% /var/cache
+tmpfs                  1015996        32   1015964   0% /home/root
+
+== top-level sizes (KiB)
+3228	/bin
+5404	/sbin
+31992	/lib
+176244	/usr
+32308	/etc
+4	/opt/alps
+113389	/opt/app
+1828952	/opt/hmi
+718444	/opt/iba
+1930832	/opt/isp
+15437792	/opt/navd
+440348	/opt/navi
+0	/opt/navid
+4	/opt/pal
+8	/opt/speech
+231996	/var/local/data
+16	/var/local/lost+found
+
+== /usr and /opt/hmi breakdown (KiB)
+10028	/usr/bin
+4	/usr/games
+74468	/usr/lib
+86060	/usr/local
+4832	/usr/sbin
+844	/usr/share
+4	/usr/src
+67828	/opt/hmi/bin
+1737392	/opt/hmi/data
+23728	/opt/hmi/lib
+
+== default dump set (KiB)
+3228	bin
+5404	sbin
+31992	lib
+176244	usr
+32308	etc
+1828952	opt/hmi
+
+== entries in default dump set
+51352
+
+== HmiMain3D
+/opt/hmi/bin/HmiMain3D
+
+== libraries HmiMain3D loads (traced by the loader, not executed)
+	libhmivideo.so => /opt/hmi/lib/libhmivideo.so (0x76fa2000)
+	libhmispeedlock.so => /opt/hmi/lib/libhmispeedlock.so (0x76f93000)
+	libAppFramework.A.so => /opt/hmi/lib/libAppFramework.A.so (0x76f81000)
+	libicuuc.so => /opt/hmi/lib/libicuuc.so (0x76e5d000)
+	libicui18n.so => /opt/hmi/lib/libicui18n.so (0x76ccc000)
+	libicudt.so => /opt/hmi/lib/libicudt.so (0x76cc2000)
+	libiwnn.1.6.6-r1.so => /opt/hmi/lib/libiwnn.1.6.6-r1.so (0x76c6a000)
+	libILU.so => /opt/hmi/lib/libILU.so (0x76c56000)
+	libhmispeechdialog.so => /opt/hmi/lib/libhmispeechdialog.so (0x769fd000)
+	libhmispeechtypes.so => /opt/hmi/lib/libhmispeechtypes.so (0x769e4000)
+	libCommonAPI.so.3 => /usr/lib/libCommonAPI.so.3 (0x769c9000)
+	libCommonAPI-DBus.so.3 => /usr/lib/libCommonAPI-DBus.so.3 (0x768d6000)
+	libSomeIPGen-apn.so.0 => /usr/local/lib/libSomeIPGen-apn.so.0 (0x75125000)
+	libCoreFramework.A.so => /opt/hmi/lib/libCoreFramework.A.so (0x7510a000)
+	libhmistatistic.so => /opt/hmi/lib/libhmistatistic.so (0x750df000)
+	libhmilog.so => /opt/hmi/lib/libhmilog.so (0x750cb000)
+	libGLESv2.so.2 => /usr/lib/libGLESv2.so.2 (0x75057000)
+	libEGL.so.1 => /usr/lib/libEGL.so.1 (0x7504d000)
+	libpvr_wlegl.so => /usr/lib/libpvr_wlegl.so (0x75044000)
+	libDevIL.so => /opt/hmi/lib/libDevIL.so (0x74f15000)
+	libOpenCTM.so => /opt/hmi/lib/libOpenCTM.so (0x74efc000)
+	libfribidi.so => /opt/hmi/lib/libfribidi.so (0x74ee2000)
+	libfreetype2.so => /opt/hmi/lib/libfreetype2.so (0x74e91000)
+	libharfbuzz.so => /opt/hmi/lib/libharfbuzz.so (0x74e30000)
+	libhmiperformancemonitor.so => /opt/hmi/lib/libhmiperformancemonitor.so (0x74e1d000)
+	libhmiaudio.so => /opt/hmi/lib/libhmiaudio.so (0x74df7000)
+	libhmidb.so => /opt/hmi/lib/libhmidb.so (0x74cce000)
+	libhmigraphicbase.so => /opt/hmi/lib/libhmigraphicbase.so (0x74cbe000)
+	libwayland-client.so.0 => /usr/lib/libwayland-client.so.0 (0x74cad000)
+	libilmClient.so.1.2.0 => /usr/lib/libilmClient.so.1.2.0 (0x74ca2000)
+	libilmCommon.so.1.2.0 => /usr/lib/libilmCommon.so.1.2.0 (0x74c99000)
+	libilmControl.so.1.2.0 => /usr/lib/libilmControl.so.1.2.0 (0x74c89000)
+	libxsvideo.so.4 => /usr/lib/libxsvideo.so.4 (0x74c6e000)
+	libhmifwsupport.so => /opt/hmi/lib/libhmifwsupport.so (0x74c60000)
+	libhmil6services.so => /opt/hmi/lib/libhmil6services.so (0x746fb000)
+	libhmiservices.so => /opt/hmi/lib/libhmiservices.so (0x74695000)
+	libhmiwebserverservice.so => /opt/hmi/lib/libhmiwebserverservice.so (0x74660000)
+	libvmostclient.so.1 => /usr/local/lib/libvmostclient.so.1 (0x7464e000)
+	libvmost.so.1 => /usr/local/lib/libvmost.so.1 (0x74640000)
+	libglib-2.0.so.0 => /usr/lib/libglib-2.0.so.0 (0x74532000)
+	libgthread-2.0.so.0 => /usr/lib/libgthread-2.0.so.0 (0x74528000)
+	libsystemd-daemon.so.0 => /lib/libsystemd-daemon.so.0 (0x7451c000)
+	libhmicom.so => /opt/hmi/lib/libhmicom.so (0x744f4000)
+	libhmiregistry.so => /opt/hmi/lib/libhmiregistry.so (0x744e1000)
+	libhmicoding.so => /opt/hmi/lib/libhmicoding.so (0x7443c000)
+	libhmiplugin.so => /opt/hmi/lib/libhmiplugin.so (0x7440a000)
+	libpersistence_client_library.so.7 => /usr/lib/libpersistence_client_library.so.7 (0x743e1000)
+	libdbus-1.so.3 => /lib/libdbus-1.so.3 (0x743ac000)
+	libhmizip.so => /opt/hmi/lib/libhmizip.so (0x7439d000)
+	libhmibase.so => /opt/hmi/lib/libhmibase.so (0x74351000)
+	libdl.so.2 => /lib/libdl.so.2 (0x74346000)
+	libpthread.so.0 => /lib/libpthread.so.0 (0x7432a000)
+	librt.so.1 => /lib/librt.so.1 (0x7431c000)
+	libdlt.so.2 => /usr/lib/libdlt.so.2 (0x742f7000)
+	libboost_filesystem.so => /opt/hmi/lib/libboost_filesystem.so (0x742db000)
+	libboost_system.so => /opt/hmi/lib/libboost_system.so (0x742d1000)
+	libboost_regex.so => /opt/hmi/lib/libboost_regex.so (0x741bb000)
+	libz.so.1 => /lib/libz.so.1 (0x7419f000)
+	libstdc++.so.6 => /lib/libstdc++.so.6 (0x740f9000)
+	libm.so.6 => /lib/libm.so.6 (0x7408f000)
+	libc.so.6 => /lib/libc.so.6 (0x73fac000)
+	libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x73f8b000)
+	/lib/ld-linux-armhf.so.3 (0x76fbd000)
+	libCommonAPI-SomeIP.so.2 => /usr/local/lib/libCommonAPI-SomeIP.so.2 (0x73f23000)
+	libsrv_um.so => /usr/lib/libsrv_um.so (0x73ee3000)
+	libIMGegl.so => /usr/lib/libIMGegl.so (0x73ec4000)
+	libpvr2d.so => /usr/lib/libpvr2d.so (0x73eb5000)
+	libdrm.so.2 => /usr/lib/libdrm.so.2 (0x73ea3000)
+	libdrm_omap.so.1 => /usr/lib/libdrm_omap.so.1 (0x73e98000)
+	libgbm.so.1 => /usr/lib/libgbm.so.1 (0x73e8d000)
+	libffi.so.6 => /usr/lib/libffi.so.6 (0x73e7d000)
+	libpng16.so.16 => /usr/lib/libpng16.so.16 (0x73e4c000)
+	libdce.so.1 => /usr/lib/libdce.so.1 (0x73e3e000)
+	libmmrpc.so.1 => /usr/lib/libmmrpc.so.1 (0x73e34000)
+	libivi-application.so.0 => /usr/lib/libivi-application.so.0 (0x73e2b000)
+	libSomeIP.so => /usr/local/lib/libSomeIP.so (0x73df6000)
+	libwayland-server.so.0 => /usr/lib/libwayland-server.so.0 (0x73de2000)
+	libudev.so.1 => /lib/libudev.so.1 (0x73dc7000)
+
+== plugin roots
+ls: /opt/hmi/data/ro/Plugins*: No such file or directory
+ls: /var/local/data/HMI/Plugins: No such file or directory
+/opt/hmi/data/ro:
+drwxr-xr-x   14 root     root          4096 Jan  1  1970 .
+drwxr-xr-x    4 root     root          4096 Jan 25  2024 ..
+-rwxr-xr-x    1 root     root            82 Jan 25  2024 Audio_System
+drwxr-xr-x    2 root     root          4096 Jan  1  1970 BIS
+-rwxr-xr-x    1 root     root             8 Jan 25  2024 CAF_ID
+-rwxr-xr-x    1 root     root            78 Jan 25  2024 DISPLAY_PIP_CONFIG
+-rwxr-xr-x    1 root     root            26 Jan 25  2024 EFFICIENT_DYNAMICS
+-rwxr-xr-x    1 root     root            69 Jan 25  2024 ExBox
+drwxr-xr-x    3 root     root          4096 Jan  1  1970 FEP
+-rwxr-xr-x    1 root     root            80 Jan 25  2024 FES
+-rwxr-xr-x    1 root     root           150 Jan 25  2024 HMI
+-rwxr-xr-x    1 root     root            11 Jan 25  2024 HUD
+-rwxr-xr-x    1 root     root           711 Jan 25  2024 HmiGen_FilesRemoteService.xml
+-rwxr-xr-x    1 root     root          1004 Jan 25  2024 HmiGen_GracenoteRemoteService.xml
+-rwxr-xr-x    1 root     root         16548 Jan 25  2024 HmiGen_NavigationRemoteService.xml
+-rwxr-xr-x    1 root     root          2600 Jan 25  2024 HmiGen_PhoneRemoteService.xml
+-rwxr-xr-x    1 root     root          6177 Jan 25  2024 HmiGen_TVRemoteService.xml
+-rwxr-xr-x    1 root     root             8 Jan 25  2024 KOMBI
+-rwxr-xr-x    1 root     root             8 Jan 25  2024 LANGUAGE
+-rwxr-xr-x    1 root     root            39 Jan 25  2024 NAVIGATION
+drwxr-xr-x    2 root     root          4096 Jan  1  1970 RSE_HIGH
+drwxr-xr-x    2 root     root          4096 Jan  1  1970 Rueko
+-rwxr-xr-x    1 root     root            50 Jan 25  2024 SARAH
+-rwxr-xr-x    1 root     root            33 Jan 25  2024 System_Adjustment
+-rwxr-xr-x    1 root     root             6 Jan 25  2024 TOUCH_COMMAND
+-rwxr-xr-x    1 root     root            39 Jan 25  2024 Telefon_Telematik_Online
+drwxr-xr-x   18 root     root          4096 Jan  1  1970 app
+drwxr-xr-x    7 root     root          4096 Jan  1  1970 bmw
+drwxr-xr-x    8 root     root          4096 Jan  1  1970 bmwi
+drwxr-xr-x    6 root     root          4096 Jan  1  1970 bmwm
+drwxr-xr-x   13 root     root          4096 Jan 25  2024 common
+drwxr-xr-x    2 root     root          4096 Jan  1  1970 hdb
+lrwxrwxrwx    1 root     root            39 Jan 25  2024 hmiplugins -> ../../../app/usr/hmi/data/ro/hmiplugins
+-rwxr-xr-x    1 root     root      30006048 Jan 25  2024 icudt54l.dat
+drwxr-xr-x    7 root     root          4096 Jan  1  1970 j29
+lrwxrwxrwx    1 root     root            40 Jan 25  2024 license.txt -> ../../../app/usr/hmi/data/ro/license.txt
+lrwxrwxrwx    1 root     root            47 Jan 25  2024 license_sp2018.txt -> ../../../app/usr/hmi/data/ro/license_sp2018.txt
+drwxr-xr-x    8 root     root          4096 Jan  1  1970 mini
+-rwxr-xr-x    1 root     root          3246 Jan 25  2024 revoke_crl.p7b
+-rwxr-xr-x    1 root     root            52 Jan 25  2024 version.txt
+-rwxr-xr-x    1 root     root           332 Jan 25  2024 version_textdb.txt
+
+== plugin manifests and text databases
+
+== BMW framework libraries
+/opt/hmi/lib/libCoreFramework.A.so
+/opt/hmi/lib/libAppFramework.A.so
+/opt/navi/EBNavi/libSTFFramework.so
+
+== absolute symlinks in library folders (first 20)
+/lib/systemd/system/syslog.service -> /dev/null
+/usr/lib/systemd/user/shutdown.target -> /lib/systemd/system/shutdown.target
+/usr/lib/systemd/user/sockets.target -> /lib/systemd/system/sockets.target
+/usr/lib/systemd/user/timers.target -> /lib/systemd/system/timers.target
+/usr/lib/systemd/user/paths.target -> /lib/systemd/system/paths.target
+/usr/lib/systemd/user/bluetooth.target -> /lib/systemd/system/bluetooth.target
+/usr/lib/systemd/user/sound.target -> /lib/systemd/system/sound.target
+/usr/lib/systemd/user/smartcard.target -> /lib/systemd/system/smartcard.target
+/usr/lib/systemd/user/printer.target -> /lib/systemd/system/printer.target
+/usr/local/lib/libpixman_wkc.so -> /opt/app/usr/Browser/lib/libpixman_wkc.so
+/usr/local/lib/mod_magnet.so -> /opt/app/usr/Browser/lib/mod_magnet.so
+/usr/local/lib/libpng_wkc.so -> /opt/app/usr/Browser/lib/libpng_wkc.so
+/usr/local/lib/libpeer_customjs_wkc.so -> /opt/app/usr/Browser/lib/libpeer_customjs_wkc.so
+/usr/local/lib/libnx.so -> /opt/app/usr/Browser/lib/libnx.so
+/usr/local/lib/mod_fastcgi.so -> /opt/app/usr/Browser/lib/mod_fastcgi.so
+/usr/local/lib/libopenssl_wkc.so -> /opt/app/usr/Browser/lib/libopenssl_wkc.so
+/usr/local/lib/libxslt_wkc.so -> /opt/app/usr/Browser/lib/libxslt_wkc.so
+/usr/local/lib/process_bin -> /opt/app/usr/Browser/lib/process_bin
+/usr/local/lib/libpeer_heap_wkc.so -> /opt/app/usr/Browser/lib/libpeer_heap_wkc.so
+/usr/local/lib/alps/evolution -> /opt/app/usr/BTMedia/evolution/stack/lib
+
+== summary (computed on the Mac)
+default dump set (bin sbin lib usr etc opt/hmi): 2029 MiB, 51352 entries
+library folders HmiMain3D uses:
+  /lib  (in the default dump)
+  /opt/hmi/lib  (in the default dump)
+  /usr/lib  (in the default dump)
+  /usr/local/lib  (in the default dump)
+libraries the loader could not find: 0
+
+Before dumping, check in the sections above: separate mounts under /opt, and any folder in the GB range.

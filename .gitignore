@@ -1,0 +1,5 @@
+# Firmware dump: large binaries + embedded secrets (root hash, .p12). Never commit.
+dump/
+
+# macOS
+.DS_Store
