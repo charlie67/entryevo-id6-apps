@@ -16,8 +16,8 @@ EntryNav2-Android-Auto repo as the reference. Later, read car data and talk to o
 | Dump the car's system (`dump.sh`) | done: 2.15 GB, 51,694 entries (car and tar match), no errors |
 | Check the plugin framework against my firmware | done: vtable slots and constructor match the repo |
 | Map car data (CDS) and links to other modules | done, from the dump only (nothing tried on the car) |
-| Hello-world plugin skeleton | **next**, planned below |
-| CDS logger (which properties my car fills, and their JSON) | next, part of the skeleton |
+| Hello-world plugin skeleton | **built**: `plugins/helloplugin/`, compiles and passes `hmitest` load test; row targets My Vehicle (state 60); not yet run on the car |
+| CDS logger (which properties my car fills, and their JSON) | built into the skeleton (`plugins/helloplugin/car_log.cpp`, read-only); needs the car |
 | Decode native menu texts (`text.db`) | done: `textdb.py` reads all 38 language tables (read-only) |
 | HMI caching that could hide a `text.db` edit | done from the dump; confirm on the car (section 5) |
 | `text.db` writer (rename native menu rows) | not started: needs an NRV2D compressor + `set` command |
@@ -43,6 +43,7 @@ EntryNav2-Android-Auto repo as the reference. Later, read car data and talk to o
 | `textdb.py` | reads `text.db`: `list`, `grep <regex> [chunk]`, `id <textId>`, `dump <chunk> <out.txt>`. Run with `python3 -I` |
 | `hmidis.py` | disassembler/analyser for HmiMain3D (symbolised via `.dynsym`): `sym`, `dis`, `win`, `str`, `xref`, `callers`, `deref`. Needs `capstone`+`pyelftools` |
 | `hmitest/` | emulated plugin build + load-test: `Dockerfile`, `fetch_toolchain.py`, `plugin_load_check.c`, `test-plugin.sh`, `build-plugin.sh` (section 9) |
+| `plugins/helloplugin/` | the hello-world plugin skeleton (section 8): source, `HelloPlugin.{manifest,xml}`, `make_db.py`, `Makefile`, `package.py`, `INSTALL.md`, `README.md`. Self-contained, can move to its own repo. Build: `hmitest/build-plugin.sh plugins/helloplugin make`; test: `hmitest/test-plugin.sh plugins/helloplugin/libHelloPlugin.so` |
 
 The extracted copy is at `/Volumes/hurootfs/rootfs-202402191339`; `/Volumes/hurootfs/rootfs` and
 `~/entrynav2/rootfs` (the repo's default path) link to it. After a Mac reboot, run
@@ -206,11 +207,24 @@ opt/aa/aa-supervisor, opt/aa/entry-aad   background programs started by the plug
 - **Menu placement** (attributes on `<pluginApp>`):
   - `insertStateID`: which menu. `insertAfterFocusID`: after which row. `entryButtonFocusID`: the new row's own
     focus id. `applicationWeight` may affect ordering.
+  - **`insertAfterFocusID` is optional:** the loader's own messages say "set at least insertStateID and optional
+    either insertAfterFocusID or replaceFocusID" (`CHmiDescription::load`). With neither, `applicationWeight`
+    orders the row. `lookupInsertAfterFocusId` resolves the anchor when one is given.
   - The loader also accepts **`replaceFocusID`**, which presumably replaces an existing row. Untested.
   - The top-level menus are `ST_Nav_Selection`, `ST_Ent_Selection` (Media), `ST_Com_Selection`, `ST_MyV_Selection`
     (My Vehicle) and `ST_CDr_Selection` (ConnectedDrive).
-  - **Only Media is confirmed:** state 20, after focus id 2270 (the AA repo found it by disassembly). The other
-    states' numbers and row focus ids are compiled into HmiMain3D and need disassembly or careful testing.
+  - **Selection-state ids** come from each app's `getSelectionState(uint)` virtual (slot 8 of the
+    `CHmi<Menu>Application` vtable, an inline `return <id>;`). Read on this firmware with `hmidis.py dis`:
+
+    | Menu | App class | `insertStateID` |
+    |---|---|---|
+    | Media (`ST_Ent_Selection`) | `CHmiEntApplication` | **20** (0x14) — matches the AA repo |
+    | My Vehicle (`ST_MyV_Selection`) | `CHmiCarApplication` | **60** (0x3c) |
+    | Navigation / Communication / ConnectedDrive | `CHmi{Nav,Communication,CDr}Application` | not yet read (same method) |
+
+    Media's value validates the method. Media's row anchor (focus id 2270) is still the only confirmed
+    `insertAfterFocusID`; other menus' row focus ids need more tracing (e.g. the `FI_MyV_Selection_*` names), but
+    with the anchor optional a row can be placed by `insertStateID` + `applicationWeight` alone.
   - `.pba` files in `/opt/hmi/data/ro/app/*/` are layout templates (`LT_State_Selection`, `LT_Button_1Row_…`), not
     state-id tables.
 - **Full XML vocabulary** the loader knows (strings in HmiMain3D):

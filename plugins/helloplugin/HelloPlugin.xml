@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2026 Charlie Robinson. SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0.
+     Derived from EntryNav2-Android-Auto (Jiraiya43). The UI description HmiMain3D parses for HelloPlugin.
+     insertStateID 60 (0x3c) is the My Vehicle menu, ST_MyV_Selection: confirmed in HmiMain3D via
+     CHmiCarApplication::getSelectionState (validated because CHmiEntApplication::getSelectionState returns 20,
+     the known Media id). insertAfterFocusID is optional (the loader needs only insertStateID), so it is omitted
+     and applicationWeight orders the row. entryButtonFocusID and the 56xxx image ids are kept distinct from
+     EntryAad so the two can coexist. -->
+<pluginApps>
+  <pluginApp applicationType="Custom" applicationWeight="210" entryButtonFocusID="32753" insertStateID="60" text="Hello World">
+    <comment/>
+    <entryButton action="2" id="1" model="3" imageModel="4" previewModel="13">
+      <properties/>
+    </entryButton>
+    <actions>
+      <raAction id="2"/>
+      <raAction id="21"/>
+      <raAction id="24"/>
+      <hmiAction id="25" target="12"/>
+    </actions>
+    <models>
+      <textIdModel id="3" textId="1">
+        <synonyms/>
+      </textIdModel>
+      <imageIdModel id="4" imageId="56001"/>
+      <imageIdModel id="12" imageId="56002"/>
+      <raPreviewModel id="13" modelType="StatePreview" previewState="11"/>
+      <raDataModel id="30"/>
+      <textIdModel id="31" textId="10">
+        <synonyms/>
+      </textIdModel>
+      <raBoolModel id="34"/>
+      <textIdModel id="35" textId="15">
+        <synonyms/>
+      </textIdModel>
+      <textIdModel id="36" textId="16">
+        <synonyms/>
+      </textIdModel>
+      <textIdModel id="80" textId="20">
+        <synonyms/>
+      </textIdModel>
+      <textIdModel id="81" textId="21">
+        <synonyms/>
+      </textIdModel>
+      <textIdModel id="82" textId="22">
+        <synonyms/>
+      </textIdModel>
+      <textIdModel id="83" textId="23">
+        <synonyms/>
+      </textIdModel>
+    </models>
+    <events>
+      <focusEvent id="51" target="10"/>
+    </events>
+    <hmiStates>
+      <hmiState id="10" text="Hello World" textModel="3">
+        <components>
+          <label id="60" model="30"/>
+          <button action="21" id="61" model="31" text="Change message"/>
+          <separator id="66"/>
+          <checkbox action="24" id="64" model="34" textModel="35" text="Demo setting"/>
+          <separator id="67"/>
+          <button action="25" id="65" model="36" text="Help"/>
+        </components>
+      </hmiState>
+      <hmiState id="12" parentId="10" text="Help" textModel="36">
+        <components>
+          <label id="90" model="80"/>
+          <label id="91" model="81"/>
+          <label id="92" model="82"/>
+          <label id="93" model="83"/>
+        </components>
+      </hmiState>
+      <hmiState id="11" text="Hello World" textModel="3">
+        <components>
+          <image id="70" model="12">
+            <properties>
+              <property id="3" value="true"/>
+              <property id="9" value="549"/>
+              <property id="10" value="484"/>
+              <property id="20" value="0"/>
+              <property id="21" value="0"/>
+            </properties>
+          </image>
+        </components>
+      </hmiState>
+    </hmiStates>
+  </pluginApp>
+</pluginApps>
